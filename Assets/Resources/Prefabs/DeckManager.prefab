@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8065325415471234068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2463161046966756264}
+  - component: {fileID: 8949169917290623534}
+  m_Layer: 0
+  m_Name: DeckManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2463161046966756264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8065325415471234068}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 553.282, y: 2.9107666, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8949169917290623534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8065325415471234068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c9fe484ed80f44393e30ff8486dd69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allCards:
+  - {fileID: 11400000, guid: 0d5e199d5bcd6d24992e84da2ffe4238, type: 2}
+  - {fileID: 11400000, guid: 809d93ce2d646ff47a8b568f322e9bf1, type: 2}
+  - {fileID: 11400000, guid: 442cfc5abb6fafa4083baa13993c1b4a, type: 2}
+  - {fileID: 11400000, guid: 37f8230011dc32a418e631061b0ee746, type: 2}
+  - {fileID: 11400000, guid: 23798c312c740d941be5be2e7aae918f, type: 2}
+  - {fileID: 11400000, guid: e12d236008e47c74b98b85e907ca9944, type: 2}
+  - {fileID: 11400000, guid: e2c65aceabbef4040be235cb2a0a7249, type: 2}
+  - {fileID: 11400000, guid: a2d9ff9878ac59a44ba4badce1f4b548, type: 2}
+  - {fileID: 11400000, guid: f8ff6a1746757c04a8337852a0eb3662, type: 2}
+  startingHandSize: 6
+  maxHandSize: 9
+  currentHandSize: 0
