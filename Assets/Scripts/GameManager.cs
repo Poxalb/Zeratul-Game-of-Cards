@@ -157,6 +157,10 @@ public class GameManager : MonoBehaviour
     public void EndPlayerTurn()
     {
         ResolveCombat();
+        
+        // Check for game over conditions
+        if (CheckGameOver()) return;
+        
         turnState = TurnState.EnemyTurn;
         StartEnemyTurn();
     }
@@ -242,7 +246,19 @@ public class GameManager : MonoBehaviour
 
     public void EndEnemyTurn()
     {
+        StartCoroutine(EndEnemyTurnWithDelay());
+    }
+
+    private IEnumerator EndEnemyTurnWithDelay()
+    {
         ResolveCombat();
+        
+        // Wait for 2 seconds so player can see what happened during enemy turn
+        yield return new WaitForSeconds(2f);
+        
+        // Check for game over conditions
+        if (CheckGameOver()) yield break;
+        
         turnState = TurnState.PlayerTurn;
         StartPlayerTurn();
     }
@@ -402,5 +418,20 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning($"Scene '{sceneName}' not found, loading main menu instead.");
             SceneManager.LoadScene("MainMenu"); // Fallback to main menu
         }
+    }
+
+    private bool CheckGameOver()
+    {
+        if (playerHealth <= 0)
+        {
+            LoseGame(true);
+            return true;
+        }
+        if (enemyHealth <= 0)
+        {
+            LoseGame(false);
+            return true;
+        }
+        return false;
     }
 }
