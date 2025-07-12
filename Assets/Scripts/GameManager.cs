@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI HPPlayerText;
     public TextMeshProUGUI HPEnemyText;
+    public TextMeshProUGUI ManaPlayerText;
+    public TextMeshProUGUI ManaEnemyText;
 
     private EnemyAI enemyAI;
 
@@ -97,7 +99,7 @@ public class GameManager : MonoBehaviour
         set
         {
             playerHealth = Mathf.Max(0, value);
-            UpdateHPUI();
+            UpdateUI();
             if (playerHealth <= 0)
             {
                 LoseGame(true);
@@ -131,6 +133,7 @@ public class GameManager : MonoBehaviour
     {
         if (playerManaLimit < 10) playerManaLimit++;
         playerMana = playerManaLimit;
+        UpdateUI(); // Update mana UI when player turn starts
 
         // Draw a card from the player's deck if available
         if (deckManager.playerCards.Count > 0 && deckManager.handManager.cardsInHand.Count < deckManager.handManager.maxHandSize)
@@ -144,7 +147,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogWarning("Player deck is empty! Player takes 1 damage.");
             PlayerHealth -= 1;
-            UpdateHPUI(); // Update health UI after player takes damage 
+            UpdateUI(); // Update health UI after player takes damage 
         }
 
         Debug.Log("Player turn started. Mana: " + playerMana + "/" + playerManaLimit);
@@ -222,12 +225,14 @@ public class GameManager : MonoBehaviour
     {
         if(enemyManaLimit < 10) enemyManaLimit++;
         enemyMana = enemyManaLimit;
+        UpdateUI(); // Update mana UI when enemy turn starts
 
         if (enemyAI == null)
         enemyAI = FindFirstObjectByType<EnemyAI>();        
 
         // TODO: Add logic for enemy to use/draw this card
         enemyAI.ExecuteTurn();
+        UpdateUI(); // Update UI after enemy AI logic
         //EnemyPlayRandomCard(); // AI logic to play a random card
 
         Debug.Log("Enemy turn started. Mana: " + enemyMana + "/" + enemyManaLimit);
@@ -291,7 +296,7 @@ public class GameManager : MonoBehaviour
                 enemyCell.isOccupied = false;
             }
         }
-        UpdateHPUI(); // Update health UI after combat resolution
+        UpdateUI(); // Update health UI after combat resolution
     }
 
     void Start()
@@ -302,13 +307,21 @@ public class GameManager : MonoBehaviour
     public int PlayerMana
     {
         get => playerMana;
-        set => playerMana = value;
+        set 
+        {
+            playerMana = value;
+            UpdateUI();
+        }
     }
 
     public int PlayerManaLimit
     {
         get => playerManaLimit;
-        set => playerManaLimit = value;
+        set 
+        {
+            playerManaLimit = value;
+            UpdateUI();
+        }
     }
 
     public int EnemyHealth
@@ -317,7 +330,7 @@ public class GameManager : MonoBehaviour
         set
         {
             enemyHealth = Mathf.Max(0, value);
-            UpdateHPUI();
+            UpdateUI();
             if (enemyHealth <= 0)
             {
                 LoseGame(false);
@@ -328,21 +341,33 @@ public class GameManager : MonoBehaviour
     public int EnemyMana
     {
         get => enemyMana;
-        set => enemyMana = value;
+        set 
+        {
+            enemyMana = value;
+            UpdateUI();
+        }
     }
 
     public int EnemyManaLimit
     {
         get => enemyManaLimit;
-        set => enemyManaLimit = value;
+        set 
+        {
+            enemyManaLimit = value;
+            UpdateUI();
+        }
     }
 
-    public void UpdateHPUI()
+    public void UpdateUI()
     {
         if (HPPlayerText != null)
             HPPlayerText.text = PlayerHealth.ToString();
         if (HPEnemyText != null)
             HPEnemyText.text = EnemyHealth.ToString();
+        if (ManaPlayerText != null)
+            ManaPlayerText.text = playerMana + "/" + playerManaLimit;
+        if (ManaEnemyText != null)
+            ManaEnemyText.text = enemyMana + "/" + enemyManaLimit;
     }
 
     private void LoseGame(bool isPlayer)

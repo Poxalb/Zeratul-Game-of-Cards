@@ -306,6 +306,12 @@ private void MoveCardToPlayPosition()
         if (gridIndex.y == 0 && gridManager.AddOccupantToGrid(cardInstance, gridIndex))
         {
             hasBeenPlayed = true;
+            
+            // Deduct mana cost from player
+            GameManager.Instance.PlayerMana -= cardInstance.cost;
+
+            GameManager.Instance.UpdateUI(); // Update UI after playing card
+            
             RemoveCardFromHand();
             //debug.Log($"Card {GetComponent<CardDisplay>().cardData.cardName} played successfully to grid index: " + gridIndex);
             currentState = 4;
@@ -326,6 +332,11 @@ private void MoveCardToPlayPosition()
         if (gridManager.IsCellOccupied(gridIndex))
         {
             hasBeenPlayed = true;
+            
+            // Deduct mana cost from player
+            GameManager.Instance.PlayerMana -= GetComponent<CardDisplay>().cardData.cost;
+            GameManager.Instance.UpdateUI(); // Update UI after playing card
+
             SpellEffectApplier.ApplySpellEffect(GetComponent<CardDisplay>().cardData as Spell, gridManager.GetCardAtGridIndex(gridIndex));
             cardDisplay.UpdateCardDisplay(); // Update the card display after applying the spell effect
             RemoveCardFromHand();
