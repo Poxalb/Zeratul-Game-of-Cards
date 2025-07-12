@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using TMPro; // Add this if not present
 
 public class GameManager : MonoBehaviour
@@ -377,11 +378,29 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Player has lost the game.");
             // Show player lose UI, stop game, etc.
+            StartCoroutine(LoadSceneAfterDelay("GameOver", 2f)); // Load game over scene after 2 seconds
         }
         else
         {
             Debug.Log("Enemy has lost the game.");
             // Show enemy lose UI, stop game, etc.
+            StartCoroutine(LoadSceneAfterDelay("Victory", 2f)); // Load victory scene after 2 seconds
+        }
+    }
+
+    private IEnumerator LoadSceneAfterDelay(string sceneName, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        
+        // Try to load the specific scene, fallback to main menu if scene doesn't exist
+        try
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+        catch
+        {
+            Debug.LogWarning($"Scene '{sceneName}' not found, loading main menu instead.");
+            SceneManager.LoadScene("MainMenu"); // Fallback to main menu
         }
     }
 }

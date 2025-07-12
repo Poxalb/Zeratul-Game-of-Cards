@@ -40,6 +40,20 @@ public class GridManager : MonoBehaviour
 
                 cell.GetComponent<GridCell>().gridIndex = position;
 
+                // Ensure grid cells render on top of background elements
+                SpriteRenderer cellRenderer = cell.GetComponent<SpriteRenderer>();
+                if (cellRenderer != null)
+                {
+                    cellRenderer.sortingOrder = 100; // Very high sorting order to render above backgrounds
+                }
+                
+                // Also set sorting order for any child SpriteRenderers
+                SpriteRenderer[] childRenderers = cell.GetComponentsInChildren<SpriteRenderer>();
+                foreach (SpriteRenderer renderer in childRenderers)
+                {
+                    renderer.sortingOrder = 100;
+                }
+
                 gridCells[x, y] = cell;
             }
         }
@@ -71,6 +85,20 @@ public class GridManager : MonoBehaviour
 
                 // Assign card data
                 newObj.GetComponent<CardDisplay>().cardData = occupant;
+
+                // Ensure cards also render on top
+                SpriteRenderer cardRenderer = newObj.GetComponent<SpriteRenderer>();
+                if (cardRenderer != null)
+                {
+                    cardRenderer.sortingOrder = 200; // Even higher sorting order for cards
+                }
+                
+                // Also set sorting order for any child SpriteRenderers on cards
+                SpriteRenderer[] cardChildRenderers = newObj.GetComponentsInChildren<SpriteRenderer>();
+                foreach (SpriteRenderer renderer in cardChildRenderers)
+                {
+                    renderer.sortingOrder = 200;
+                }
 
                 // Track occupancy
                 occupiedCells.Add(newObj);

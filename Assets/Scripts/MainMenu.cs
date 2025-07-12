@@ -7,56 +7,14 @@ public class MainMenu : MonoBehaviour
     
     private void Start()
     {
-        volumeMenuUI.SetActive(false);
     }
     public void NewGame()
     {
-        SceneManager.LoadScene(1);
-        PlayerPrefs.SetInt("DeathCounter", 0);
+        SceneManager.LoadScene("CombatScene"); // Load combat scene directly
     }
     public void LoadLevel1()
     {
-        SceneManager.LoadScene(1);
-    }
-    public void LoadLevel2()
-    {
-        if(PlayerPrefs.HasKey("LastSceneIndex"))
-        {
-            int sceneIndex = PlayerPrefs.GetInt("LastSceneIndex");
-            if (sceneIndex >= 2) {
-                SceneManager.LoadScene(sceneIndex);
-            }
-            else CantLoadLevelMessage(2);            
-        }
-        else
-        {
-            NoGameFoundMessage();
-        }
-    }
-    public void LoadLevel3()
-    {
-        if(PlayerPrefs.HasKey("LastSceneIndex"))
-        {
-            int sceneIndex = PlayerPrefs.GetInt("LastSceneIndex");
-            if(sceneIndex >= 3) SceneManager.LoadScene(sceneIndex); else CantLoadLevelMessage(3);            
-        }
-        else
-        {
-            NoGameFoundMessage();
-        }
-    }
-
-    public void LoadLevel4()
-    {
-        if(PlayerPrefs.HasKey("LastSceneIndex"))
-        {
-            int sceneIndex = PlayerPrefs.GetInt("LastSceneIndex");
-            if(sceneIndex >= 4) SceneManager.LoadScene(sceneIndex); else CantLoadLevelMessage(4);            
-        }
-        else
-        {
-            NoGameFoundMessage();
-        }
+        SceneManager.LoadScene("Combat"); // Load combat scene directly
     }
 
     public void Quit()

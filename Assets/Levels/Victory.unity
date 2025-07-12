@@ -178,10 +178,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'CONGRATULATIONS
+  m_text: 'EL REGENTE DE LA TAbERNA TE DA LA ENHORABUENA
 
 
-    the game was completed successfuly'
+    Has superado tu trauma
+    con las cartas'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -571,14 +572,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -844773298834026925, guid: 3ee6a65f5e414c14baa7cdae52c229fb, type: 3}
+  m_Sprite: {fileID: 6967246290980105443, guid: bc7e49ac88808bf409d3ced9fcd93e40, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -29,7 +29,7 @@ TagManager:
   - Platform
   - Grid
   - Characters
-  - 
+  - Landscape
   - 
   - 
   - 
@@ -54,3 +54,4 @@ TagManager:
     locked: 0
   m_RenderingLayers:
   - Default
+  - Landscape
