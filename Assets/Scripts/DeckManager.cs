@@ -73,8 +73,8 @@ public class DeckManager : MonoBehaviour
         drawPileManager.InitializeDrawPile(playerCards);
         enemyDrawPileManager.InitializeDrawPile(enemyCards);
 
-        drawPileManager.BattleSetup(startingHandSize, maxHandSize);
-        enemyDrawPileManager.BattleSetup(startingHandSize, maxHandSize);
+        drawPileManager.BattleSetup(startingHandSize, maxHandSize, handManager);
+        enemyDrawPileManager.BattleSetup(startingHandSize, maxHandSize, enemyHandManager);
 
         startBattle = false;
 

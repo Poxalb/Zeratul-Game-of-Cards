@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6456bb889daaad84fa3261122425d5ee, type: 3}
+  m_Name: ArcaneShotgun 1
+  m_EditorClassIdentifier: 
+  cardName: Arcane Rifle
+  description: Crystal Powered Weapon
+  cost: 4
+  cardImage: {fileID: 8333481726314500824, guid: eda9203d5966d72489f4c00aa7ecf9ca, type: 3}
+  cardType: 00000000
+  damage: 7
+  health: 3
+  damageType: 5

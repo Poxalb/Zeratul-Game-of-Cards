@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6456bb889daaad84fa3261122425d5ee, type: 3}
+  m_Name: Artifact Lord
+  m_EditorClassIdentifier: 
+  cardName: Artifact Lord
+  description: He created them. He knows how to use it
+  cost: 6
+  cardImage: {fileID: -3654227148707642379, guid: f1cff25ed3dfe514592462fdb0a73a76, type: 3}
+  cardType: 00000000
+  damage: 9
+  health: 5
+  damageType: 0

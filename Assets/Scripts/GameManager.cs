@@ -251,7 +251,6 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator EndEnemyTurnWithDelay()
     {
-        ResolveCombat();
         
         // Wait for 2 seconds so player can see what happened during enemy turn
         yield return new WaitForSeconds(2f);
@@ -259,6 +258,7 @@ public class GameManager : MonoBehaviour
         // Check for game over conditions
         if (CheckGameOver()) yield break;
         
+        ResolveCombat();
         turnState = TurnState.PlayerTurn;
         StartPlayerTurn();
     }

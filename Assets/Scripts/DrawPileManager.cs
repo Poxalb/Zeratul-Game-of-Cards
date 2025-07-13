@@ -41,12 +41,21 @@ public class DrawPileManager : MonoBehaviour
         if (!isEnemy) UpdateDrawPileText();
     }
 
-    public void BattleSetup(int numberOfCardsToDraw, int setMaxHandSize = 6)
+    public void BattleSetup(int numberOfCardsToDraw, int setMaxHandSize)
     {
         maxHandSize = setMaxHandSize;
         for (int i = 0; i < numberOfCardsToDraw; i++)
         {
             DrawCard(handManager);
+        }
+    }
+
+    public void BattleSetup(int numberOfCardsToDraw, int setMaxHandSize, HandManager targetHandManager)
+    {
+        maxHandSize = setMaxHandSize;
+        for (int i = 0; i < numberOfCardsToDraw; i++)
+        {
+            DrawCard(targetHandManager);
         }
     }
 
