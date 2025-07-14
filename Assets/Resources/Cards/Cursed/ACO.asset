@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6456bb889daaad84fa3261122425d5ee, type: 3}
+  m_Name: ACO
+  m_EditorClassIdentifier: 
+  cardName: Acient Cursed One
+  description: One of the first cursed, when it was more powerful, still here, still
+    suffering
+  cost: 8
+  cardImage: {fileID: 6624294451115951452, guid: e98a21f39d2eb514a9a3737181f7c359, type: 3}
+  cardType: 04000000
+  damage: 4
+  health: 15
+  damageType: 1

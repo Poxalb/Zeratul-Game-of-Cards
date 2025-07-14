@@ -14,7 +14,7 @@ public class DeckManager : MonoBehaviour
     public HandManager handManager;
 
     public HandManager enemyHandManager;
-    private DrawPileManager drawPileManager;
+    public DrawPileManager drawPileManager;
     public DrawPileManager enemyDrawPileManager;
     private bool startBattle = true;
     void Start()

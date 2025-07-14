@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6456bb889daaad84fa3261122425d5ee, type: 3}
   m_Name: Olathos, Chaotic Agent
   m_EditorClassIdentifier: 
-  cardName: Olathos, Chaotic Agant
+  cardName: Othalos, Chaotic Agant
   description: Sun cursed priest, opening the path to enlightment.
-  cost: 5
-  cardImage: {fileID: 0}
+  cost: 4
+  cardImage: {fileID: -8106105314311889931, guid: e5844f6c1c4f690489a5881ca3c026d0, type: 3}
   cardType: 04000000
   damage: 2
-  health: 7
+  health: 8
   damageType: 4

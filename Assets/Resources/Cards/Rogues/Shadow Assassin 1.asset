@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6456bb889daaad84fa3261122425d5ee, type: 3}
+  m_Name: Shadow Assassin 1
+  m_EditorClassIdentifier: 
+  cardName: Shadow Assassin
+  description: Assassin in the shadows? What a shock ain't it?
+  cost: 2
+  cardImage: {fileID: -5074466370204620262, guid: bf96217e51a8ca14f8bc44418ab7e2fa, type: 3}
+  cardType: 01000000
+  damage: 3
+  health: 1
+  damageType: 0

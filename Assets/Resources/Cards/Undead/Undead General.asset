@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6456bb889daaad84fa3261122425d5ee, type: 3}
   m_Name: Undead General
   m_EditorClassIdentifier: 
-  cardName: Undead General
+  cardName: Bone Colossus
   description: Long ago a respected general, now a shadow of what he was
   cost: 5
-  cardImage: {fileID: 0}
+  cardImage: {fileID: 8819648616216593264, guid: 40e046fcd85d2f54fb025731fdb0460f, type: 3}
   cardType: 06000000
   damage: 4
-  health: 6
+  health: 5
   damageType: 4

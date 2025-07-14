@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6456bb889daaad84fa3261122425d5ee, type: 3}
   m_Name: Maladi 1
   m_EditorClassIdentifier: 
-  cardName: Maladi
-  description: Former Lover of Hecaton.
-  cost: 5
-  cardImage: {fileID: 0}
+  cardName: Dilama
+  description: Former Lover of Notcahec.
+  cost: 7
+  cardImage: {fileID: 6909573027830829728, guid: 2a06390873ecdbd4c98a781f43d7a754, type: 3}
   cardType: 01000000
-  damage: 5
-  health: 5
+  damage: 6
+  health: 7
   damageType: 6

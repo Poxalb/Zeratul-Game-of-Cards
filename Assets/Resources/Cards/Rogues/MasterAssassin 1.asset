@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6456bb889daaad84fa3261122425d5ee, type: 3}
+  m_Name: MasterAssassin 1
+  m_EditorClassIdentifier: 
+  cardName: Master Assassin
+  description: He kills like a pro
+  cost: 5
+  cardImage: {fileID: -1186896233308946054, guid: 3cab24c2c22b5e94d955b563dea3d08d, type: 3}
+  cardType: 01000000
+  damage: 5
+  health: 4
+  damageType: 6

@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    private int playerHealth = 20;
+    private int playerHealth = 40;
 
     private int difficultyLevel = 5;
 
@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour
     private int playerManaLimit = 0;
     private int enemyMana;
     private int enemyManaLimit;
-    private int enemyHealth = 20; // Add this field at the top with your other fields
+    private int enemyHealth = 40; // Add this field at the top with your other fields
 
     private enum TurnState
     {
@@ -139,11 +139,7 @@ public class GameManager : MonoBehaviour
         // Draw a card from the player's deck if available
         if (deckManager.playerCards.Count > 0 && deckManager.handManager.cardsInHand.Count < deckManager.handManager.maxHandSize)
         {
-            int drawIndex = Random.Range(0, deckManager.playerCards.Count);
-            Card drawnCard = deckManager.playerCards[drawIndex];
-            deckManager.handManager.AddCardToHand(drawnCard);
-            deckManager.playerCards.RemoveAt(drawIndex); // Remove to prevent duplicates
-        }
+            deckManager.drawPileManager.DrawCard(deckManager.handManager);        }
         else
         {
             Debug.LogWarning("Player deck is empty! Player takes 1 damage.");

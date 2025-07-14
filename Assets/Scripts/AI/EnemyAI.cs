@@ -35,10 +35,34 @@ public class EnemyAI : MonoBehaviour
     {
         AdjustDifficultySettings();
         DrawIfPossible();
-        AnalyzeBoardState();
         
-        // Execute the behavior tree for decision making
-        aiDecisionTree.Tick();
+        // Continue playing cards until we can't play anymore or run out of mana
+        int maxPlayAttempts = 10; // Prevent infinite loops
+        int attempts = 0;
+        
+        while (gameManager.EnemyMana > 0 && attempts < maxPlayAttempts)
+        {
+            AnalyzeBoardState();
+            
+            // Execute the behavior tree for decision making
+            BTNode.State result = aiDecisionTree.Tick();
+            
+            // If no card was played this iteration, break the loop
+            if (result == BTNode.State.Failure)
+            {
+                Debug.Log("EnemyAI: No more profitable plays available. Ending turn.");
+                break;
+            }
+            
+            attempts++;
+        }
+        
+        if (attempts >= maxPlayAttempts)
+        {
+            Debug.LogWarning("EnemyAI: Reached maximum play attempts, ending turn to prevent infinite loop.");
+        }
+        
+        Debug.Log($"EnemyAI: Turn ended. Remaining mana: {gameManager.EnemyMana}");
     }
     
     private void InitializeBehaviorTree()
@@ -202,19 +226,43 @@ public class EnemyAI : MonoBehaviour
     
     private BTNode.State HandleEmergencyResponse()
     {
-        // Priority 1: Play defensive spells on our characters
-        if (TryPlayDefensiveSpells())
-            return BTNode.State.Success;
+        bool playedCard = false;
+        
+        // Try multiple emergency responses until we run out of mana or options
+        while (gameManager.EnemyMana > 0)
+        {
+            bool playedThisRound = false;
             
-        // Priority 2: Play debuff spells on enemy threats
-        if (TryPlayDebuffSpells())
-            return BTNode.State.Success;
+            // Priority 1: Play defensive spells on our characters
+            if (TryPlayDefensiveSpells())
+            {
+                playedCard = true;
+                playedThisRound = true;
+            }
             
-        // Priority 3: Play any character to block
-        if (TryPlayCharacterForDefense())
-            return BTNode.State.Success;
+            // Priority 2: Play debuff spells on enemy threats
+            else if (TryPlayDebuffSpells())
+            {
+                playedCard = true;
+                playedThisRound = true;
+            }
             
-        return BTNode.State.Failure;
+            // Priority 3: Play any character to block
+            else if (TryPlayCharacterForDefense())
+            {
+                playedCard = true;
+                playedThisRound = true;
+            }
+            
+            // If nothing was played this round, break to avoid infinite loop
+            if (!playedThisRound)
+                break;
+                
+            // Update board state for next iteration
+            AnalyzeBoardState();
+        }
+        
+        return playedCard ? BTNode.State.Success : BTNode.State.Failure;
     }
     
     private BTNode.State CanMakeOffensivePlay()
@@ -241,15 +289,35 @@ public class EnemyAI : MonoBehaviour
     
     private BTNode.State ExecuteOffensiveStrategy()
     {
-        // Try to play high-damage characters
-        if (TryPlayHighDamageCharacters())
-            return BTNode.State.Success;
+        bool playedCard = false;
+        
+        while (gameManager.EnemyMana > 0)
+        {
+            bool playedThisRound = false;
             
-        // Try to buff our existing characters
-        if (TryPlayBuffSpells())
-            return BTNode.State.Success;
+            // Try to play high-damage characters
+            if (TryPlayHighDamageCharacters())
+            {
+                playedCard = true;
+                playedThisRound = true;
+            }
             
-        return BTNode.State.Failure;
+            // Try to buff our existing characters
+            else if (TryPlayBuffSpells())
+            {
+                playedCard = true;
+                playedThisRound = true;
+            }
+            
+            // If nothing was played this round, break
+            if (!playedThisRound)
+                break;
+                
+            // Update board state for next iteration
+            AnalyzeBoardState();
+        }
+        
+        return playedCard ? BTNode.State.Success : BTNode.State.Failure;
     }
     
     private BTNode.State ShouldControlBoard()
@@ -267,24 +335,55 @@ public class EnemyAI : MonoBehaviour
     
     private BTNode.State ExecuteBoardControl()
     {
-        // Play efficient characters
-        if (TryPlayEfficientCharacters())
-            return BTNode.State.Success;
+        bool playedCard = false;
+        
+        while (gameManager.EnemyMana > 0)
+        {
+            bool playedThisRound = false;
             
-        // Use spells to control the board
-        if (TryPlayControlSpells())
-            return BTNode.State.Success;
+            // Play efficient characters
+            if (TryPlayEfficientCharacters())
+            {
+                playedCard = true;
+                playedThisRound = true;
+            }
             
-        return BTNode.State.Failure;
+            // Use spells to control the board
+            else if (TryPlayControlSpells())
+            {
+                playedCard = true;
+                playedThisRound = true;
+            }
+            
+            if (!playedThisRound)
+                break;
+                
+            AnalyzeBoardState();
+        }
+        
+        return playedCard ? BTNode.State.Success : BTNode.State.Failure;
     }
     
     private BTNode.State ExecuteValuePlay()
     {
-        // Try to play any affordable card
-        if (TryPlayAnyAffordableCard())
-            return BTNode.State.Success;
-            
-        return BTNode.State.Failure;
+        bool playedCard = false;
+        
+        // Try to spend all remaining mana on value plays
+        while (gameManager.EnemyMana > 0)
+        {
+            if (TryPlayAnyAffordableCard())
+            {
+                playedCard = true;
+                AnalyzeBoardState(); // Update state after each play
+            }
+            else
+            {
+                // No more affordable cards, break
+                break;
+            }
+        }
+        
+        return playedCard ? BTNode.State.Success : BTNode.State.Failure;
     }
     
     // Helper methods for card evaluation and playing

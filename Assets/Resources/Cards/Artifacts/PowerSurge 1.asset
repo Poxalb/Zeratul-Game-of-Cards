@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PowerSurge 1
   m_EditorClassIdentifier: 
   cardName: PowerSurge
-  description: You feel the power thorugh your veins!
+  description: You feel the power through your veins!
   cost: 1
   cardImage: {fileID: 8252352786344243354, guid: 04edc36fa0bb66848aa20d10b8966e3a, type: 3}
   cardType: 00000000

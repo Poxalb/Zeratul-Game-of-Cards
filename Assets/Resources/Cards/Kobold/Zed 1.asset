@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6456bb889daaad84fa3261122425d5ee, type: 3}
   m_Name: Zed 1
   m_EditorClassIdentifier: 
-  cardName: Zed
+  cardName: Ted
   description: 'A doctor trainee, waiting for his medical licence '
   cost: 2
-  cardImage: {fileID: 0}
+  cardImage: {fileID: 1362060182879664405, guid: c860add28a40dde41a9d0b7e77c34791, type: 3}
   cardType: 02000000
   damage: 2
   health: 2

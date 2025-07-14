@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 584f4456f9542504ea8d6488f4c96c34, type: 3}
   m_Name: ArcaneEnhanc
   m_EditorClassIdentifier: 
-  cardName: 2
+  cardName: Arcane Enhancement
   description: You've upgrade your item
   cost: 2
   cardImage: {fileID: -7423450304632157706, guid: ecb4822c47acbb44fb92e19860cc925f, type: 3}

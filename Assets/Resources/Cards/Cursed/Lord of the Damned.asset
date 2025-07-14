@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6456bb889daaad84fa3261122425d5ee, type: 3}
+  m_Name: Lord of the Damned
+  m_EditorClassIdentifier: 
+  cardName: Lord of the Damned
+  description: He created the curse long ago, he is back, he wants to finish his
+    job
+  cost: 7
+  cardImage: {fileID: -6789356565677242325, guid: 174b9be0ad41e7d4e9ac9a3d0d918603, type: 3}
+  cardType: 01000000
+  damage: 5
+  health: 11
+  damageType: 4

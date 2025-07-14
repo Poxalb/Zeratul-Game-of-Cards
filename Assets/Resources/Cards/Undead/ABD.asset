@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6456bb889daaad84fa3261122425d5ee, type: 3}
+  m_Name: ABD
+  m_EditorClassIdentifier: 
+  cardName: Ancient Bone Draconic
+  description: Never let Noktajec experiment again
+  cost: 7
+  cardImage: {fileID: 5380948418121818696, guid: 6c66a060e05412142b9fe71eb383cce4, type: 3}
+  cardType: 06000000
+  damage: 7
+  health: 7
+  damageType: 3

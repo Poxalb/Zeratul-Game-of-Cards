@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6456bb889daaad84fa3261122425d5ee, type: 3}
+  m_Name: BW 3
+  m_EditorClassIdentifier: 
+  cardName: Necromancer Acolyte
+  description: Learning from the... Worst?
+  cost: 3
+  cardImage: {fileID: -4675911806274540851, guid: e31bb0fe1580246469a8f1697029805d, type: 3}
+  cardType: 06000000
+  damage: 2
+  health: 2
+  damageType: 0

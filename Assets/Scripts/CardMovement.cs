@@ -293,6 +293,7 @@ private void MoveCardToPlayPosition()
     }
     else
     {
+        GameManager.Instance.playingCard = false; // Reset the playing card flag
         TransitionToState0();
     }
 }
@@ -321,6 +322,8 @@ private void MoveCardToPlayPosition()
         }
         else
         {
+            GameManager.Instance.playingCard = false; // Reset the playing card flag
+
             //debug.Log("Failed to play card to grid index: " + gridIndex);
             TransitionToState0();
         }
@@ -348,6 +351,8 @@ private void MoveCardToPlayPosition()
         }
         else
         {
+            GameManager.Instance.playingCard = false; // Reset the playing card flag
+
             //debug.Log("Failed to play spell card to grid index: " + gridIndex);
             TransitionToState0();
         }
@@ -362,7 +367,7 @@ private void RemoveCardFromHand()
         if (handManager != null)
         {
             handManager.cardsInHand.Remove(gameObject);
-            handManager.UpdateCardPositions();
+            handManager.OnCardRemoved();
         }
     }
 

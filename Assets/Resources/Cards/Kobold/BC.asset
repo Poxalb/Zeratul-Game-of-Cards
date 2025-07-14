@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 584f4456f9542504ea8d6488f4c96c34, type: 3}
+  m_Name: BC
+  m_EditorClassIdentifier: 
+  cardName: Battle Cry
+  description: You Cry, a lot
+  cost: 1
+  cardImage: {fileID: 4530228726807776682, guid: 1c8148ce28a80f148aa44883e5fb4115, type: 3}
+  cardType: 02000000
+  spellType: 0
+  attributeTargets: 01000000
+  healthChange: 0
+  damageChange: 2
+  cardElementChangeTo: 0

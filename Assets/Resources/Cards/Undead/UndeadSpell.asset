@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 584f4456f9542504ea8d6488f4c96c34, type: 3}
+  m_Name: UndeadSpell
+  m_EditorClassIdentifier: 
+  cardName: Dark Blessing
+  description: You have been blessed by your skeleton Lord
+  cost: 1
+  cardImage: {fileID: -7923038370480944266, guid: 97209b08ad13b8842b1e2e76baa7a113, type: 3}
+  cardType: 05000000
+  spellType: 0
+  attributeTargets: 0000000002000000
+  healthChange: 1
+  damageChange: 0
+  cardElementChangeTo: 2

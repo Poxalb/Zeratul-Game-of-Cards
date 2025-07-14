@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 584f4456f9542504ea8d6488f4c96c34, type: 3}
+  m_Name: FP
+  m_EditorClassIdentifier: 
+  cardName: Forbidden Power
+  description: NO GOING BACK!
+  cost: 3
+  cardImage: {fileID: -131839288600794529, guid: 4ee0a5754cff46842a0318b2ea99738a, type: 3}
+  cardType: 04000000
+  spellType: 0
+  attributeTargets: 000000000100000002000000
+  healthChange: -2
+  damageChange: 3
+  cardElementChangeTo: 4

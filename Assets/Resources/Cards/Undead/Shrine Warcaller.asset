@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Shrine Warcaller
   description: Old cleric, bound to his faith
-  cost: 3
-  cardImage: {fileID: 0}
+  cost: 4
+  cardImage: {fileID: 48552919354548497, guid: 68f76f7be4643b7409da7ca8c3db430e, type: 3}
   cardType: 06000000
-  damage: 4
-  health: 2
+  damage: 2
+  health: 5
   damageType: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CrystalShard 1
   m_EditorClassIdentifier: 
   cardName: CrystalShard
-  description: A crystal.... Seems to power sotmething
+  description: A crystal.... Seems to power something
   cost: 1
   cardImage: {fileID: 7479642271789056252, guid: 15236b3fe6ba2ab4090ec8f8061db80c, type: 3}
   cardType: 00000000

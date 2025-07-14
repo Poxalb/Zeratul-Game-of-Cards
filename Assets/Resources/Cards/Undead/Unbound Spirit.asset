@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6456bb889daaad84fa3261122425d5ee, type: 3}
   m_Name: Unbound Spirit
   m_EditorClassIdentifier: 
-  cardName: Unbound Spirit
-  description: Stray soul, wondering where he sohuld go
+  cardName: Skeleton Scout
+  description: Stray soul, wondering where he should go
   cost: 1
-  cardImage: {fileID: 0}
+  cardImage: {fileID: 5332176777714506957, guid: c2c61713c81664f47a4d705d3cd388f6, type: 3}
   cardType: 06000000
   damage: 1
   health: 1
