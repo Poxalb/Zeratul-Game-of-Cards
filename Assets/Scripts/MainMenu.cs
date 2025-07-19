@@ -27,10 +27,5 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("No game found. Please start a new game.");
     }
-    private void CantLoadLevelMessage(int level)
-    {
-        Debug.Log("Instance is null? " + (NotificationManager.Instance == null));
-        NotificationManager.Instance.ShowNotification($"You need to complete level {level - 1} before you can access this level.");
-    }
   
 }
