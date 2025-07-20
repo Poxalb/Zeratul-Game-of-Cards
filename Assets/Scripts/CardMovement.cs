@@ -275,19 +275,27 @@ private void MoveCardToPlayPosition()
     {
     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
     RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-    //debug.Log("TryPlayCard --- Raycast hit: " + hit.collider != null);
-    if (hit.collider != null && hit.collider.GetComponent<GridCell>())
+    Debug.Log("TryPlayCard --- Raycast hit: " + hit.collider != null);
+    if (hit.collider != null)
     {
-            //debug.Log("TryPlayCard --- cardData type: " + cardData?.GetType().Name);
+            Debug.Log("TryPlayCard --- cardData type: " + cardData?.GetType().Name);
 
-            if (cardData is Character character)
+            if (cardData is Character character && hit.collider.GetComponent<GridCell>())
             {
-                //debug.Log("Trying to play card...");
+                Debug.Log("Trying to play card...");
                 AttemptCharacterPlacement(hit.collider.GetComponent<GridCell>());
             }
             else if (cardData is Spell spell)
             {
-                AttemptSpellPlacement(hit.collider.GetComponent<GridCell>());
+                if (hit.collider.GetComponent<CardDisplay>() == null)
+                {
+                    GameManager.Instance.playingCard = false; // Reset the playing card flag
+
+                    Debug.Log("Failed to play spell card");
+                    TransitionToState0();
+                }
+                Debug.Log("Trying to play card... on a " + hit.collider.GetType().Name);
+                AttemptSpellPlacement(hit.collider.GetComponent<CardDisplay>().cardData);
             }
         
     }
@@ -328,34 +336,23 @@ private void MoveCardToPlayPosition()
             TransitionToState0();
         }
     }
-    private void AttemptSpellPlacement(GridCell cell)
+    private void AttemptSpellPlacement(Card targetCard)
     {
         //debug.Log("Attempting to play spell card...");
-        Vector2 gridIndex = cell.gridIndex;
-        if (gridManager.IsCellOccupied(gridIndex))
-        {
             hasBeenPlayed = true;
             
             // Deduct mana cost from player
             GameManager.Instance.PlayerMana -= GetComponent<CardDisplay>().cardData.cost;
             GameManager.Instance.UpdateUI(); // Update UI after playing card
 
-            SpellEffectApplier.ApplySpellEffect(GetComponent<CardDisplay>().cardData as Spell, gridManager.GetCardAtGridIndex(gridIndex));
+            SpellEffectApplier.ApplySpellEffect(GetComponent<CardDisplay>().cardData as Spell, targetCard);
             cardDisplay.UpdateCardDisplay(); // Update the card display after applying the spell effect
             RemoveCardFromHand();
-            //debug.Log($"Card {GetComponent<CardDisplay>().cardData.cardName} played successfully to grid index: " + gridIndex);
+            Debug.Log($"Card {GetComponent<CardDisplay>().cardData.cardName} played successfully");
             currentState = 4;
             GameManager.Instance.playingCard = false; // Reset the playing card flag
 
             Destroy(gameObject); // Destroy the card GameObject
-        }
-        else
-        {
-            GameManager.Instance.playingCard = false; // Reset the playing card flag
-
-            //debug.Log("Failed to play spell card to grid index: " + gridIndex);
-            TransitionToState0();
-        }
     }
 
 private void RemoveCardFromHand()
